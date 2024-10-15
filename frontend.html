@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated MCQ Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        .mcq-box {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Automated MCQ Generator</h1>
+        <form id="mcq-form">
+            <label for="input_text">Enter text for MCQ generation:</label>
+            <textarea id="input_text" name="input_text" placeholder="Enter some text here..."></textarea>
+            <button type="submit">Generate MCQ</button>
+        </form>
+
+        <div class="mcq-box" id="mcq-box">
+            <!-- MCQ will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('mcq-form');
+        const mcqBox = document.getElementById('mcq-box');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const inputText = document.getElementById('input_text').value;
+
+            // Send POST request to Flask API
+            fetch('/generate_mcq', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    'input_text': inputText
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    mcqBox.innerHTML = `<p style="color:red;">${data.error}</p>`;
+                } else {
+                    mcqBox.innerHTML = `
+                        <h3>Generated MCQ:</h3>
+                        <p><strong>Question:</strong> ${data.question}</p>
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                            <li>A: ${data.options[0]}</li>
+                            <li>B: ${data.options[1]}</li>
+                            <li>C: ${data.options[2]}</li>
+                            <li>D: ${data.options[3]}</li>
+                        </ul>
+                        <p><strong>Answer:</strong> ${data.answer}</p>
+                    `;
+                }
+            })
+            .catch(err => {
+                mcqBox.innerHTML = `<p style="color:red;">Error: ${err}</p>`;
+            });
+        });
+    </script>
+</body>
+</html>

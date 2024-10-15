@@ -1,0 +1,11 @@
+question	options	answer
+What is the name of Virat Kohli's father?	['Virat Kohli', 'hcdvz', 'grmko', 'zbnte']	Virat Kohli
+What is Kohli's record for run-scorer?	['tierce', 'third', 'one-third', 'third base']	third
+What was Kohli's first ODI game?	['zhpuk', 'xydfj', 'zmunn', 'T20I']	T20I
+What is the name of the trophy that he won?	['wskau', '2013 Champions Trophy', 'bdges', 'jkoit']	2013 Champions Trophy
+What was Kohli's ranking in 2018?	['ndjux', 'vdbij', 'gnscf', 'top Test batsman']	top Test batsman
+What award does Kohli receive for his performance in international cricket?	['llqml', 'qtduc', 'ICC Awards', 'krlik']	ICC Awards
+What award did he win in 2012, 2017, 2018 and 2023?	['pemhn', 'qutcx', 'ICC ODI Player of the Year', 'tgckx']	ICC ODI Player of the Year
+What award did he win in 2018?	['whceu', 'Test Player of the Year', 'kdxau', 'bsebc']	Test Player of the Year
+What award did Kohli receive in India's national level?	['psidk', 'Arjuna Award', 'lvlwf', 'nofdr']	Arjuna Award
+What award did Kohli receive in 2018?	['qjflt', 'fuane', 'Khel Ratna Award', 'jwdiw']	Khel Ratna Award
